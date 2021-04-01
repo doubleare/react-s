@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Hero from './pages/home/home';
+import './App.scss';
+import Header from './components/header';
+import Footer from './components/footer';
+import { Route } from 'react-router-dom';
+import Watches from './pages/Watches/Watches';
+import './redux/store';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Header />
+      <Route exact path='/' component={Hero} />
+      <Route path='/home' component={Hero} />
+      <Route path='/watches' component={Watches} />
+      <Footer />
+    </React.Fragment>
   );
 }
 
